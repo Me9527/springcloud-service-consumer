@@ -18,7 +18,7 @@ public class DcController {
     @GetMapping("/consumer")
     public String dc() {
         ServiceInstance serviceInstance = loadBalancerClient.choose("service-provide-01");
-        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/dc";
+        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/user/getUser/2";
         System.out.println(url);
         return restTemplate.getForObject(url, String.class);
     }
